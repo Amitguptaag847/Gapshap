@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="contact-profile">
+        <img *ngIf="selectedUser.name" src="../../../../assets/images/cool.jpg" alt="" />
+        <p>{{selectedUser.name}}</p>
+    </div>
+    <div class="messages">
+        <ul #scrollBottom>
+            <li *ngFor="let chat of currentChat"
+                [ngClass]="{'sent':chat.senderId !== currentUserInfo.id, 'replies':chat.senderId === currentUserInfo.id}">
+                <img src="../../../../assets/images/cool.jpg" alt="" />
+                <p>{{chat.message}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="message-input">
+        <div class="wrap">
+            <form autocomplete="off" [formGroup]="messageForm" (ngSubmit)="sendMessage(messageForm.value.message)">
+                <input autocomplete="off" type="text" formControlName="message" name="message" placeholder="Write your message..." />
+                <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</div>

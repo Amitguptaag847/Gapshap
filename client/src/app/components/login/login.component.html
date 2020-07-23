@@ -1,0 +1,36 @@
+<div class="main">
+    <section class="sign-in position-center">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure><img src="../../../assets/images/signin-image.jpg" alt="sing up image"></figure>
+                    <a routerLink="/signup" class="signup-image-link">Create an account</a>
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title">Log in</h2>
+                    <form [formGroup]="logForm" (ngSubmit)="onSubmit(logForm.value)" class="register-form" id="login-form">
+                        <div class="form-group">
+                            <label for="number"><i class="zmdi zmdi-smartphone"></i></label>
+                            <input type="number" formControlName="phonenumber" name="phonenumber" id="phonenumber" placeholder="Phone Number" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.phonenumber }}
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" formControlName="password" name="password" id="pass" placeholder="Password" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.password }}
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" [disabled]="!logForm.valid"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<router-outlet></router-outlet>

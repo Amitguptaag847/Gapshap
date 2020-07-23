@@ -1,0 +1,49 @@
+<div class="main">
+    <section class="signup position-center">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Register</h2>
+                    <form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm.value)" class="register-form" id="register-form">
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" formControlName="name" name="name" id="name" placeholder="Your Name" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="number"><i class="zmdi zmdi-smartphone"></i></label>
+                            <input type="number" formControlName="phonenumber" name="phonenumber" id="phonenumber" placeholder="Phone Number" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.phonenumber }}
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" formControlName="password" name="password" id="pass" placeholder="Password" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.password }}
+                        </div>
+                        <div class="form-group">
+                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="password" formControlName="re_password" name="re_password" id="re_pass" placeholder="Repeat your password" />
+                        </div>
+                        <div class="text-danger"  style="height: 25px">
+                            {{ errors.re_password }}
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register" [disabled]="!regForm.valid"/>
+                        </div>
+                    </form>
+                </div>  
+                <div class="signup-image">
+                    <figure><img src="../../../assets/images/signup-image.jpg" alt="sing up image"></figure>
+                    <a routerLink="/login" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<router-outlet></router-outlet>
